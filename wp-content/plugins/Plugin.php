@@ -16,6 +16,8 @@ function plugin_table(){
 
   $sql = "CREATE TABLE $tablename (
   id mediumint(11) NOT NULL AUTO_INCREMENT,
+  first varchar(280) NOT NULL,
+  last varchar(280) NOT NULL,
   email varchar(80) NOT NULL,
   subject varchar(180) NOT NULL,
   message varchar(280) NOT NULL,

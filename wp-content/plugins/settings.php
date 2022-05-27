@@ -11,7 +11,7 @@
 <body>
 
 
-    <h1>hello</h1>
+    <h1>settings</h1>
 
     <!-- check box -->
 
@@ -26,10 +26,6 @@
     <div class="form-group">
         <input type="checkbox" name="check3" id="check3" checked>
         <label for="checkbox">Email</label>
-    </div>
-    <div class="form-group">
-        <input type="checkbox" name="check4" id="check4" checked>
-        <label for="checkbox">Phone</label>
     </div>
     <div class="form-group">
         <input type="checkbox" name="check5" id="check5" checked>
@@ -48,13 +44,13 @@
 
         // enable all input by default
         if (check1.checked === true) {
-            localStorage.removeItem("Fname");
-            localStorage.setItem('Fname', 'block');
+            localStorage.removeItem("first");
+            localStorage.setItem('first', 'block');
         }
 
         if (check2.checked === true) {
-            localStorage.removeItem("Lname");
-            localStorage.setItem('Lname', 'block');
+            localStorage.removeItem("last");
+            localStorage.setItem('last', 'block');
         }
 
         if (check3.checked === true) {
@@ -62,10 +58,7 @@
             localStorage.setItem('email', 'block');
         }
 
-        if (check4.checked === true) {
-            localStorage.removeItem("phone");
-            localStorage.setItem('phone', 'block');
-        }
+       
 
         if (check5.checked === true) {
             localStorage.removeItem("subject");
@@ -85,27 +78,27 @@
             //check1 for first name
 
             const check1 = document.getElementById('check1');
-            const Fname = document.getElementById('Fname');
+            const first = document.getElementById('first');
 
 
             if (check1.checked === true) {
-                localStorage.removeItem("Fname");
-                localStorage.setItem('Fname', 'block');
+                localStorage.removeItem("first");
+                localStorage.setItem('first', 'block');
             } else {
-                localStorage.removeItem("Fname");
-                localStorage.setItem('Fname', 'none');
+                localStorage.removeItem("first");
+                localStorage.setItem('first', 'none');
             }
 
             //check2 for last name
 
             const check2 = document.getElementById('check2');
-            const Lname = document.getElementById('Lname');
+            const last = document.getElementById('last');
 
 
             if (check2.checked === true) {
-                localStorage.setItem('Lname', 'block');
+                localStorage.setItem('last', 'block');
             } else {
-                localStorage.setItem('Lname', 'none');
+                localStorage.setItem('last', 'none');
             }
 
             //check3 for email

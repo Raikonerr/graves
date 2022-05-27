@@ -3,15 +3,18 @@
 global $wpdb;
 if(isset($_POST['submit'])){
 
+
+  $first = $_POST['first'];
+  $last = $_POST['last'];
   $email = $_POST['email'];
   $subject = $_POST['subject'];
   $message = $_POST['message'];
   $tablename = $wpdb->prefix."shaco";
 
-  if($email != '' && $subject != '' && $message != ''){
+  if($first != '' && $last != '' && $email != '' && $subject != '' && $message != ''){
      $data = $wpdb->get_results("SELECT * FROM ".$tablename." WHERE email='".$email."' ");
      if(count($data) == 0){
-       $insert = "INSERT INTO ".$tablename."(email,subject,message) values('".$email."','".$subject."','".$message."') ";
+       $insert = "INSERT INTO ".$tablename."(first,last,email,subject,message) values('".$first."','".$last."','".$email."','".$subject."','".$message."') ";
        $wpdb->query($insert);
        echo "Sent sucessfully.";
      }
@@ -24,8 +27,9 @@ if(isset($_POST['submit'])){
 <h1 class="header">Add New Message</h1>
 <form method='post' action=''>
   
-
-      <input type='email' id="email" name='email' placeholder="Email .."> <br><br>
+  <input type='text' id="first" name='first' placeholder="firstname .."> <br><br>
+  <input type='text' id="last" name='last' placeholder="lastname .."> <br><br>
+    <input type='email' id="email" name='email' placeholder="Email .."> <br><br>
     
     <input type='text' id="subject" name='subject' placeholder="Subject .."><br><br>
  
@@ -40,7 +44,16 @@ if(isset($_POST['submit'])){
 
 
 <script >
-  // first name
+  
+
+  var first = document.getElementById('first');
+  const first_display = localStorage['first'];
+  first.style.display = first_display;
+
+  var last = document.getElementById('last');
+  const last_display = localStorage['last'];
+  last.style.display = last_display;
+
   var email = document.getElementById('email');
   // var input_fname = document.getElementById('input_fname');
   const email_display = localStorage['email'];

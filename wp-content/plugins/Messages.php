@@ -12,6 +12,8 @@ if(isset($_GET['id'])){
 <table width='100%' border='1' style='border-collapse: collapse;'>
   <tr>
    <th>Id</th>
+   <th>firstname</th>
+   <th>lastname</th>
    <th>email</th>
    <th>Subject</th>
    <th>Message</th>
@@ -24,12 +26,17 @@ if(isset($_GET['id'])){
     $count = 1;
     foreach($messagesLists as $message){
       $id = $message->id;
+  
+      $first = $message->first;
+      $last = $message->last;
       $email = $message->email;
       $subject = $message->subject;
       $message = $message->message;
 
       echo "<tr>
       <td>".$count."</td>
+      <td>".$first."</td>
+      <td>".$last."</td>
       <td>".$email."</td>
       <td>".$subject."</td>
       <td>".$message."</td>
